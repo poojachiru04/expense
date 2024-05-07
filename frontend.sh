@@ -8,7 +8,7 @@ echo exit status -0
 
 echo -e "\e[35mclean old content \e[0m"
 rm -rf /usr/share/nginx/html/*echo
-exit status -0
+echo exit status -0
 
 
 echo -e "\e[35mdownload frontend content \e[0m"
