@@ -13,9 +13,9 @@ exit status -0
 
 echo -e "\e[35mdownload frontend content \e[0m"
 curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
-cd /usr/share/nginx/htmlecho
-exit status -0
+echo exit status -0
 
+cd /usr/share/nginx/htmlecho
 
 echo -e "\e[35mextract the content \e[0m"
 unzip /tmp/frontend.zip
