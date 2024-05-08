@@ -1,5 +1,5 @@
 source common.sh
-rf -rf /tmp/expense.log
+rm -f /tmp/expense.log
 
 if [ -z "$1" ]; then
   echo "Input mysql password is missing"
