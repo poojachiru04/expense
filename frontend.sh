@@ -1,28 +1,29 @@
-echo -e "\e[35minstalling nginx \e[0m"
-dnf install nginx -y
-echo exit status -0
+source common.sh
+rm -f /temp/expense.log
 
-echo -e "\e[35mcopy the expense.config file \e[0m"
-cp expense.config /etc/nginx/default.d/expense.conf
-echo exit status -0
+Heading installing nginx
+dnf install nginx -y &>>/temp/expense.log
+STAT $?
 
-echo -e "\e[35mclean old content \e[0m"
-rm -rf /usr/share/nginx/html/*echo
-echo exit status -0
+Heading copy the expense.config file
+cp expense.config /etc/nginx/default.d/expense.conf &>>/temp/expense.lognf
+STAT $?
+
+Heading clean old content
+rm -rf /usr/share/nginx/html/*  &>>/temp/expense.log
+STAT $?
 
 
-echo -e "\e[35mdownload frontend content \e[0m"
-curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
-echo exit status -0
-
+Heading download frontend content
+curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip &>>/temp/expense.log
+STAT $?
 cd /usr/share/nginx/htmlecho
 
-echo -e "\e[35mextract the content \e[0m"
-unzip /tmp/frontend.zip
-echo exit status -0
+Heading extract the content
+unzip /tmp/frontend.zip. &>>/temp/expense.log
+STAT $?
 
-echo -e "\e[35mrestart content \e[0m"
-systemctl enable
-systemctl start nginx
-systemctl restart nginx
-echo exit status -0
+Heading restart content
+systemctl enable &>>/temp/expense.log
+systemctl restart nginx &>>/temp/expense.log
+STAT $?

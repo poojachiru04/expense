@@ -1,12 +1,20 @@
-echo -e "\e[35minstalling mysql server \e[0m"
-dnf install mysql-server -y
-echo exit status -0
+source common.sh
+rf -f /temp/expense.log
 
-echo -e "\e[35mstart the nginx server \e[0m"
-systemctl enable mysqld
-systemctl start mysqld
-echo exit status -0
+if [-z "$1"]; then
+  echo "Input mysql password is missing"
+  exit 1
+fi
 
-echo -e "\e[35mset root password \e[0m"
-mysql_secure_installation --set-root-pass ExpenseApp@1
-echo exit status -0
+Heading Installing mysql server
+dnf install mysql-server -y &>>/temp/expense.log
+STAT $?
+
+Heading start the nginx server
+systemctl enable mysqld &>>/temp/expense.log
+systemctl start mysqld &>>/temp/expense.log
+STAT $?
+
+Heading set root password
+mysql_secure_installation --set-root-pass $1 &>>/temp/expense.log
+STAT $?
