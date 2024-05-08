@@ -1,27 +1,27 @@
 source common.sh
-rm -f /temp/expense.log
+rm -f /tmp/expense.log
 
 Heading "Disable nodejs default version "
-dnf module disable nodejs -y &>>/temp/expense.log
+dnf module disable nodejs -y &>>/tmp/expense.log
 STAT $?
 
 Heading "Enable nodejs 20"
-dnf module enable nodejs:20 -y  &>>/temp/expense.log
+dnf module enable nodejs:20 -y  &>>/tmp/expense.log
 STAT $?
 
 Heading "Install nodejs"
-dnf install nodejs -y  &>>/temp/expense.log
+dnf install nodejs -y  &>>/tmp/expense.log
 STAT $?
 
 Heading "Add expense user"
-id expense  &>>/temp/expense.log
+id expense  &>>/tmp/expense.log
 if [$? -ne 0 ]; then
-  useradd expense  &>>/temp/expense.log
+  useradd expense  &>>/tmp/expense.log
 fi
 STAT $?
 
 Heading "Setup backend service"
-cp backend.service /etc/systemd/system/backend.service  &>>/temp/expense.log
+cp backend.service /etc/systemd/system/backend.service  &>>/tmp/expense.log
 STAT $?
 
 Heading "Delete existing Application Directory "
