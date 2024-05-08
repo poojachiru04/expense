@@ -29,37 +29,32 @@ rm -rf /app
 STAT $?
 
 Heading "Create Application Directory"
-mkdir /app  &>>/temp/expense.log
+mkdir /app  &>>/tmp/expense.log
 STAT $?
 
 Heading "Download backend code"
-curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip  &>>/temp/expense.log
+curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip  &>>/tmp/expense.log
 STAT $?
 
 cd /app
 
 Heading " Extract backend code"
-unzip /tmp/backend.zip  &>>/temp/expense.log
+unzip /tmp/backend.zip  &>>/tmp/expense.log
 STAT $?
 
 Heading "Download nodejs app dependencies"
-npm install  &>>/temp/expense.log
+npm install  &>>/tmp/expense.log
 STAT $?
 
 Heading "install mysql client"
-dnf install mysql -y  &>>/temp/expense.log
+dnf install mysql -y  &>>/tmp/expense.log
 STAT $?
 
 Heading " load schema"
-mysql -h 18.212.87.228 -uroot -pExpenseApp@1 < /app/schema/backend  &>>/temp/expense.log
+mysql -h 18.212.87.228 -uroot -pExpenseApp@1 < /app/schema/backend  &>>/tmp/expense.log
 STAT $?
 
-
-Heading ""
-systemctl daemon-reload  &>>/temp/expense.log
-STAT $?
-
-heading "Start backend service"
+Heading "Start backend service"
 systemctl daemon-reload
 systemctl enable backend
 systemctl restart backend
