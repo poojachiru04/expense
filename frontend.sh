@@ -20,7 +20,7 @@ STAT $?
 cd /usr/share/nginx/html
 
 Heading extract the content
-unzip /tmp/frontend.zip. &>>/tmp/expense.log
+unzip /tmp/frontend.zip &>>/tmp/expense.log
 STAT $?
 
 Heading restart content
