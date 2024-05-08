@@ -6,7 +6,7 @@ dnf install nginx -y &>>/temp/expense.log
 STAT $?
 
 Heading copy the expense.config file
-cp expense.config /etc/nginx/default.d/expense.conf &>>/temp/expense.lognf
+cp expense.config /etc/nginx/default.d/expense.conf &>>/temp/expense.log
 STAT $?
 
 Heading clean old content
