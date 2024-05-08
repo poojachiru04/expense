@@ -51,7 +51,7 @@ dnf install mysql -y  &>>/tmp/expense.log
 STAT $?
 
 Heading " load schema"
-mysql -h 18.212.87.228 -uroot -pExpenseApp@1 < /app/schema/backend.sql  &>>/tmp/expense.log
+mysql -h 18.212.87.228 -uroot -p$1 < /app/schema/backend.sql  &>>/tmp/expense.log
 STAT $?
 
 Heading "Start backend service"
