@@ -15,7 +15,7 @@ STAT $?
 
 Heading "Add expense user"
 id expense  &>>/tmp/expense.log
-if [$? -ne 0 ]; then
+if [ $? -ne 0 ]; then
   useradd expense  &>>/tmp/expense.log
 fi
 STAT $?
