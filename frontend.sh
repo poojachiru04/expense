@@ -17,7 +17,7 @@ STAT $?
 Heading download frontend content
 curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip &>>/tmp/expense.log
 STAT $?
-cd /usr/share/nginx/htmlecho
+cd /usr/share/nginx/html
 
 Heading extract the content
 unzip /tmp/frontend.zip. &>>/tmp/expense.log
