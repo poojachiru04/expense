@@ -24,6 +24,6 @@ unzip /tmp/frontend.zip &>>/tmp/expense.log
 STAT $?
 
 Heading restart content
-systemctl enable &>>/tmp/expense.log
+systemctl enable nginx &>>/tmp/expense.log
 systemctl restart nginx &>>/tmp/expense.log
 STAT $?
